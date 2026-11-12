@@ -47,10 +47,3 @@
 ## Notes
 - All URLs assume `https://ampainters.co.za/` — if the domain ends up different,
   update: canonical, `og:url`, `robots.txt`, `sitemap.xml`, JSON-LD `url`.
-
-## 🙋 Needed from Zander / Abel
-- [ ] New project photos as jobs finish (drop in `img/`, I'll add them).
-- [ ] A team/on-site photo of Abel, if one exists — for the About section.
-- [ ] Google Business Profile URL once created (optional link target later).
-- [ ] Decision on analytics (Plausible) once the domain is live.
-- [ ] Confirm final domain is `ampainters.co.za` after purchase.
