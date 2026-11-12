@@ -46,7 +46,7 @@ am-painters/
 ├── img/
 │   ├── BestWork.png           # Hero image + gallery item 1
 │   ├── ExteriorRepaint.jpeg   # About section + gallery item 2
-│   ├── FloorFarnish.png       # Gallery item 4 (floor varnishing)
+│   ├── FloorVarnish.png       # Gallery item 4 (floor varnishing)
 │   └── RoofCoating.png        # Gallery item 3
 ├── .gitattributes
 └── README.md
