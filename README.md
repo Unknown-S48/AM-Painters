@@ -18,8 +18,9 @@ Open `index.html` in a browser and it works.
 | File | Purpose |
 | --- | --- |
 | `index.html` | All markup, content, SEO meta, JSON-LD structured data, inline SVG icons |
-| `styles.css` | Layout, theme colours, responsive breakpoints, animations |
-| `script.js` | Mobile nav, scroll reveal, gallery lightbox, sticky header, footer year |
+| `404.html` | Branded not-found page (auto-used by GitHub Pages & most hosts) |
+| `css/styles.css` | Layout, theme colours, responsive breakpoints, animations |
+| `js/script.js` | Mobile nav, scroll reveal, gallery lightbox, sticky header, footer year |
 | `robots.txt` / `sitemap.xml` | Crawler rules + sitemap for the live domain |
 | `img/` | Photographs used across the site |
 
@@ -56,8 +57,10 @@ am-painters/
 ├── 404.html
 ├── robots.txt
 ├── sitemap.xml
-├── styles.css
-├── script.js
+├── css/
+│   └── styles.css
+├── js/
+│   └── script.js
 ├── img/
 │   ├── BestWork.jpg                  # Hero image
 │   ├── og-image.jpg                  # Open Graph share image (1200×630)
