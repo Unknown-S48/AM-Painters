@@ -20,6 +20,136 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css" />
 
+  <!-- ============================================================
+       PAINTING THEME (decorative extras)
+       These rules only add new classes, so they don't affect the
+       existing layout. Move them into styles.css whenever you like.
+       ============================================================ -->
+  <style>
+    /* Brush icon inside eyebrow labels */
+    .eyebrow { display: inline-flex; align-items: center; gap: .45rem; }
+    .eyebrow svg { width: 16px; height: 16px; flex: none; }
+
+    /* Brush-stroke divider under section headings */
+    .section-head h2 { position: relative; padding-bottom: .4em; }
+    .section-head h2::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 72px;
+      height: 8px;
+      transform: translateX(-50%);
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6C16 2 30 9 44 5s22-2 26 2' fill='none' stroke='%231273a6' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+      opacity: .7;
+    }
+
+    /* Orange brush swash under the highlighted word in the H1 */
+    .hl { position: relative; white-space: nowrap; }
+    .hl::after {
+      content: "";
+      position: absolute;
+      left: -3%;
+      right: -3%;
+      bottom: -0.05em;
+      height: .28em;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M3 13C35 5 65 16 100 9s65-6 96 2' fill='none' stroke='%23f59e0b' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    /* Roller-stripe texture on the hero + space for splashes */
+    .hero { position: relative; }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(115deg, rgba(18, 115, 166, .05) 0 14px, transparent 14px 46px);
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 88%);
+      mask-image: linear-gradient(180deg, #000 0%, transparent 88%);
+      pointer-events: none;
+    }
+    .hero .container { position: relative; z-index: 1; }
+
+    /* Decorative paint splashes */
+    .paint-splash {
+      position: absolute;
+      color: var(--brand);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .paint-splash.splash-a { top: -30px; right: 6%; width: 220px; opacity: .55; }
+    .paint-splash.splash-b { bottom: -40px; left: -50px; width: 260px; opacity: .4; }
+    .paint-splash.splash-c { top: -40px; right: -60px; width: 280px; opacity: .35; }
+
+    #contact .container { position: relative; }
+
+    /* Paint-drip divider under the hero */
+    .paint-drip {
+      line-height: 0;
+      color: var(--brand-soft);
+      background: #fff;
+    }
+    .paint-drip svg { display: block; width: 100%; height: 34px; }
+
+    /* Logo roller mark */
+    .logo { display: inline-flex; align-items: center; gap: .5rem; }
+    .logo-icon {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--brand-soft);
+      color: var(--brand);
+    }
+    .logo-icon svg { width: 20px; height: 20px; }
+    .logo-light .logo-icon {
+      background: rgba(124, 198, 234, .16);
+      color: #7cc6ea;
+    }
+
+    /* "Prefer email?" callout in the contact column */
+    .direct-contact {
+      display: grid;
+      gap: .35rem;
+      margin-top: 1.75rem;
+      padding: 16px 18px;
+      background: var(--brand-soft);
+      border: 1px dashed rgba(18, 115, 166, .35);
+      border-radius: 14px;
+      font-size: .92rem;
+    }
+    .direct-contact strong {
+      display: block;
+      font-size: .74rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--brand);
+    }
+    .direct-contact a { color: var(--brand); font-weight: 600; }
+    .direct-contact a:hover { text-decoration: underline; }
+
+    /* Small print under the submit button */
+    .form-note {
+      margin: .9rem 0 0;
+      font-size: .82rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    .form-note a { color: var(--brand); }
+
+    /* Paint swatches in the footer */
+    .paint-swatches { display: flex; gap: 8px; margin-top: 1.25rem; }
+    .paint-swatches span {
+      display: block;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .15);
+    }
+  </style>
+
   <!-- Local Business structured data (helps Google show your business info) -->
   <script type="application/ld+json">
   {
@@ -28,7 +158,7 @@
     "name": "A&M Painters",
     "description": "Interior and exterior painting, roof painting, cabinet and furniture painting, water damage repairs, wood varnishing, high-pressure cleaning and maintenance in Hermanus and the Overberg.",
     "telephone": "+27641599195",
-    "email": "wian.sandenbergh.2005@gmail.com",
+    "email": "mushimbwe@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "1 Long Street",
@@ -48,7 +178,16 @@
   <!-- HEADER -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <a href="#home" class="logo">A&amp;M <span>Painters</span></a>
+      <a href="#home" class="logo">
+        <span class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="16" height="6" x="2" y="2" rx="2"/>
+            <path d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+            <rect width="4" height="6" x="8" y="16" rx="1"/>
+          </svg>
+        </span>
+        A&amp;M <span>Painters</span>
+      </a>
 
       <nav class="nav" id="nav" aria-label="Main navigation">
         <ul>
@@ -71,9 +210,33 @@
 
     <!-- 1. HERO -->
     <section class="hero" id="home">
+
+      <!-- Decorative paint splashes -->
+      <svg class="paint-splash splash-a" viewBox="0 0 240 240" aria-hidden="true" focusable="false">
+        <circle cx="120" cy="100" r="62" fill="currentColor" opacity=".12"/>
+        <circle cx="192" cy="72"  r="16" fill="currentColor" opacity=".22"/>
+        <circle cx="206" cy="132" r="9"  fill="currentColor" opacity=".26"/>
+        <circle cx="66"  cy="180" r="12" fill="currentColor" opacity=".18"/>
+        <circle cx="164" cy="196" r="7"  fill="currentColor" opacity=".22"/>
+        <circle cx="34"  cy="58"  r="6"  fill="currentColor" opacity=".2"/>
+      </svg>
+      <svg class="paint-splash splash-b" viewBox="0 0 260 260" aria-hidden="true" focusable="false">
+        <circle cx="140" cy="130" r="70" fill="currentColor" opacity=".1"/>
+        <circle cx="60"  cy="70"  r="18" fill="currentColor" opacity=".16"/>
+        <circle cx="210" cy="60"  r="10" fill="currentColor" opacity=".2"/>
+        <circle cx="200" cy="200" r="14" fill="currentColor" opacity=".14"/>
+        <circle cx="52"  cy="210" r="8"  fill="currentColor" opacity=".18"/>
+      </svg>
+
       <div class="container hero-grid">
         <div class="hero-text reveal">
-          <p class="eyebrow">Painting &amp; Maintenance · Hermanus &amp; Overberg</p>
+          <p class="eyebrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/>
+              <path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/>
+            </svg>
+            Painting &amp; Maintenance · Hermanus &amp; Overberg
+          </p>
           <h1>Quality painting that <span class="hl">lasts</span>.</h1>
           <p class="lead">
             From a single room to a full exterior repaint, A&amp;M Painters delivers neat,
@@ -94,6 +257,13 @@
       </div>
     </section>
 
+    <!-- Paint-drip divider -->
+    <div class="paint-drip" aria-hidden="true">
+      <svg viewBox="0 0 192 40" preserveAspectRatio="none" focusable="false">
+        <path d="M0 0h192v6c-6 0-6 10-12 10s-6-10-12-10c-6 0-6 16-12 16s-6-16-12-16c-6 0-6 8-12 8s-6-8-12-8c-6 0-6 14-12 14s-6-14-12-14c-6 0-6 10-12 10s-6-10-12-10c-6 0-6 18-12 18s-6-18-12-18c-6 0-6 6-12 6s-6-6-12-6c-6 0-6 12-12 12s-6-12-12-12Z" fill="currentColor"/>
+      </svg>
+    </div>
+
     <!-- 2. ABOUT -->
     <section class="section" id="about">
       <div class="container about-grid">
@@ -105,7 +275,13 @@
         </div>
 
         <div class="reveal">
-          <p class="eyebrow">About us</p>
+          <p class="eyebrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/>
+              <path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/>
+            </svg>
+            About us
+          </p>
           <h2>A local painting team you can rely on</h2>
           <p class="muted">
             A&amp;M Painters is a Hermanus-based painting and maintenance business serving
@@ -135,7 +311,13 @@
     <section class="section alt" id="services">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">What we do</p>
+          <p class="eyebrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/>
+              <path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/>
+            </svg>
+            What we do
+          </p>
           <h2>Painting &amp; property maintenance services</h2>
           <p class="muted">One team for every surface — inside and out.</p>
         </div>
@@ -265,7 +447,13 @@
     <section class="section" id="gallery">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Our work</p>
+          <p class="eyebrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/>
+              <path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/>
+            </svg>
+            Our work
+          </p>
           <h2>Recent projects</h2>
           <p class="muted">Click any image to view it larger.</p>
         </div>
@@ -308,7 +496,13 @@
     <section class="section alt" id="testimonials">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Reviews</p>
+          <p class="eyebrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/>
+              <path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/>
+            </svg>
+            Reviews
+          </p>
           <h2>What clients say</h2>
         </div>
 
@@ -359,82 +553,111 @@
 
     <!-- 6. CONTACT -->
     <section class="section" id="contact">
-      <div class="container contact-grid">
-        <div class="reveal">
-          <p class="eyebrow">Get in touch</p>
-          <h2>Request your free quote</h2>
-          <p class="muted">
-            Tell us what needs painting and we'll come out to take a look — free of charge,
-            no obligation. We reply to every enquiry.
-          </p>
+      <div class="container">
 
-          <ul class="contact-list">
-            <li><strong>Phone</strong><a href="tel:+27641599195">064 159 9195</a></li>
-            <li><strong>WhatsApp</strong><a href="https://wa.me/27641599195" target="_blank" rel="noopener">064 159 9195</a></li>
-            <li><strong>Email</strong><a href="mailto:wian.sandenbergh.2005@gmail.com">mushimbwe@gmail.com</a></li>
-            <li><strong>Address</strong><span>1 Long Street, Hermanus, 7200</span></li>
-            <li><strong>Hours</strong><span>Mon – Fri, 07:30 – 17:00</span></li>
-            <li><strong>Areas served</strong><span>Hermanus · Onrus · Vermont · Sandbaai · Stanford · Gansbaai · Kleinmond · the wider Overberg</span></li>
-          </ul>
+        <!-- Decorative splash behind the contact area -->
+        <svg class="paint-splash splash-c" viewBox="0 0 280 280" aria-hidden="true" focusable="false">
+          <circle cx="150" cy="140" r="74" fill="currentColor" opacity=".1"/>
+          <circle cx="70"  cy="70"  r="18" fill="currentColor" opacity=".14"/>
+          <circle cx="228" cy="66"  r="10" fill="currentColor" opacity=".18"/>
+          <circle cx="216" cy="214" r="14" fill="currentColor" opacity=".12"/>
+          <circle cx="58"  cy="222" r="8"  fill="currentColor" opacity=".16"/>
+        </svg>
 
-        </div>
+        <div class="contact-grid">
+          <div class="reveal">
+            <p class="eyebrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/>
+                <path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/>
+              </svg>
+              Get in touch
+            </p>
+            <h2>Request your free quote</h2>
+            <p class="muted">
+              Tell us what needs painting and we'll come out to take a look — free of charge,
+              no obligation. We reply to every enquiry.
+            </p>
 
-        <form class="card contact-form reveal"
-              id="contactForm"
-              action="https://formsubmit.co/wian.sandenbergh.2005@gmail.com"
-              method="POST"
-              novalidate>
+            <ul class="contact-list">
+              <li><strong>Phone</strong><a href="tel:+27641599195">064 159 9195</a></li>
+              <li><strong>WhatsApp</strong><a href="https://wa.me/27641599195" target="_blank" rel="noopener">064 159 9195</a></li>
+              <li><strong>Email</strong><a href="mailto:mushimbwe@gmail.com">mushimbwe@gmail.com</a></li>
+              <li><strong>Address</strong><span>1 Long Street, Hermanus, 7200</span></li>
+              <li><strong>Hours</strong><span>Mon – Fri, 07:30 – 17:00</span></li>
+              <li><strong>Areas served</strong><span>Hermanus · Onrus · Vermont · Sandbaai · Stanford · Gansbaai · Kleinmond · the wider Overberg</span></li>
+            </ul>
 
-          <input type="hidden" name="_subject" value="New quote request from the A&M Painters website" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-
-          <div class="form-grid">
-            <div class="field">
-              <label for="name">Full name *</label>
-              <input type="text" id="name" name="name" autocomplete="name" required />
-            </div>
-
-            <div class="field">
-              <label for="phone">Phone number *</label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required />
-            </div>
-
-            <div class="field full">
-              <label for="email">Email address</label>
-              <input type="email" id="email" name="email" autocomplete="email" inputmode="email" />
-            </div>
-
-            <div class="field full">
-              <label for="service">What do you need done? *</label>
-              <select id="service" name="service" required>
-                <option value="">Please choose…</option>
-                <option>Interior painting</option>
-                <option>Exterior painting</option>
-                <option>Roof painting</option>
-                <option>Door painting</option>
-                <option>Cabinet painting</option>
-                <option>Furniture painting</option>
-                <option>Water damage repairs</option>
-                <option>Wood varnishing</option>
-                <option>High-pressure cleaning</option>
-                <option>Maintenance / other</option>
-              </select>
-            </div>
-
-            <div class="field full">
-              <label for="message">Tell us a bit more *</label>
-              <textarea id="message" name="message" rows="5"
-                        placeholder="e.g. 3-bedroom house exterior in Onrus, roughly 180m². Walls are flaking in places." required></textarea>
-            </div>
-
-            <div class="full">
-              <button type="submit" class="btn btn-primary btn-block">Send my request</button>
-              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            <div class="direct-contact">
+              <strong>Prefer not to use a form?</strong>
+              <span>
+                Email <a href="mailto:mushimbwe@gmail.com?subject=Quote%20request%20—%20A%26M%20Painters">mushimbwe@gmail.com</a>
+                or WhatsApp <a href="https://wa.me/27641599195" target="_blank" rel="noopener">064 159 9195</a> — same response time.
+              </span>
             </div>
           </div>
-        </form>
+
+          <form class="card contact-form reveal"
+                id="contactForm"
+                action="https://formsubmit.co/mushimbwe@gmail.com"
+                method="POST"
+                novalidate>
+
+            <input type="hidden" name="_subject" value="New quote request from the A&M Painters website" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Full name *</label>
+                <input type="text" id="name" name="name" autocomplete="name" required />
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone number *</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required />
+              </div>
+
+              <div class="field full">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" autocomplete="email" inputmode="email" />
+              </div>
+
+              <div class="field full">
+                <label for="service">What do you need done? *</label>
+                <select id="service" name="service" required>
+                  <option value="">Please choose…</option>
+                  <option>Interior painting</option>
+                  <option>Exterior painting</option>
+                  <option>Roof painting</option>
+                  <option>Door painting</option>
+                  <option>Cabinet painting</option>
+                  <option>Furniture painting</option>
+                  <option>Water damage repairs</option>
+                  <option>Wood varnishing</option>
+                  <option>High-pressure cleaning</option>
+                  <option>Maintenance / other</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="message">Tell us a bit more *</label>
+                <textarea id="message" name="message" rows="5"
+                          placeholder="e.g. 3-bedroom house exterior in Onrus, roughly 180m². Walls are flaking in places." required></textarea>
+              </div>
+
+              <div class="full">
+                <button type="submit" class="btn btn-primary btn-block">Send my request</button>
+                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                <p class="form-note">
+                  Prefer email? Write to <a href="mailto:mushimbwe@gmail.com">mushimbwe@gmail.com</a>.
+                  We reply to every enquiry within one working day.
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -444,12 +667,29 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <a href="#home" class="logo logo-light">A&amp;M <span>Painters</span></a>
+        <a href="#home" class="logo logo-light">
+          <span class="logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="16" height="6" x="2" y="2" rx="2"/>
+              <path d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+              <rect width="4" height="6" x="8" y="16" rx="1"/>
+            </svg>
+          </span>
+          A&amp;M <span>Painters</span>
+        </a>
         <p class="muted-dark">
           Interior &amp; exterior painting, roof coating, cabinets, furniture,<br />
           water damage repairs and maintenance.<br />
           Serving Hermanus and the Overberg.
         </p>
+
+        <div class="paint-swatches" aria-hidden="true">
+          <span style="background:#1273a6"></span>
+          <span style="background:#7cc6ea"></span>
+          <span style="background:#f59e0b"></span>
+          <span style="background:#e8f4fa"></span>
+          <span style="background:#ffffff"></span>
+        </div>
       </div>
 
       <div class="footer-col">
@@ -501,6 +741,92 @@
         el.classList.add('visible');
       });
     }, 2000);
+  </script>
+
+  <!-- ============================================================
+       CONTACT FORM — inline AJAX submission
+       Sends to FormSubmit's AJAX endpoint and shows success/error
+       without leaving the page. Placed BEFORE script.js so it takes
+       priority; if script.js also handles the form, remove that part
+       of script.js to avoid double handling.
+       ============================================================ -->
+  <script>
+    (function () {
+      var form = document.getElementById('contactForm');
+      if (!form) return;
+
+      var status = document.getElementById('formStatus');
+      var submitBtn = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        // Reset previous validation states
+        form.querySelectorAll('.field.invalid').forEach(function (field) {
+          field.classList.remove('invalid');
+        });
+
+        // Validate required fields
+        var missing = [];
+        ['name', 'phone', 'service', 'message'].forEach(function (name) {
+          var input = form.elements[name];
+          if (input && !String(input.value || '').trim()) {
+            missing.push(input);
+            var wrap = input.closest('.field');
+            if (wrap) wrap.classList.add('invalid');
+          }
+        });
+
+        if (missing.length) {
+          status.textContent = 'Please fill in the highlighted fields.';
+          status.className = 'form-status error';
+          if (missing[0].focus) missing[0].focus();
+          return;
+        }
+
+        var originalLabel = submitBtn ? submitBtn.textContent : '';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending…';
+        }
+        status.textContent = '';
+        status.className = 'form-status';
+
+        fetch('https://formsubmit.co/ajax/mushimbwe@gmail.com', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        })
+          .then(function (response) {
+            return response.json().then(function (data) {
+              return { ok: response.ok, data: data };
+            });
+          })
+          .then(function (result) {
+            var success = result.ok && result.data &&
+              (result.data.success === true || result.data.success === 'true');
+            if (!success) throw new Error('Submission rejected');
+
+            form.reset();
+            status.textContent = 'Thanks! Your request has been sent — we will reply within one working day.';
+            status.className = 'form-status success';
+          })
+          .catch(function () {
+            status.innerHTML =
+              'Sorry, the form could not be sent right now. Please email ' +
+              '<a href="mailto:mushimbwe@gmail.com">mushimbwe@gmail.com</a> or WhatsApp ' +
+              '<a href="https://wa.me/27641599195" target="_blank" rel="noopener">064 159 9195</a>.';
+            status.className = 'form-status error';
+          })
+          .finally(function () {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalLabel;
+            }
+          });
+      }, true);
+    })();
   </script>
 
   <script src="script.js"></script>
