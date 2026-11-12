@@ -375,26 +375,89 @@ p  { margin: 0 0 1rem; }
 /* CONTACT */
 #contact { overflow: hidden; } /* clips the decorative splash-c */
 
-.contact-single { max-width: 680px; margin-inline: auto; }
+.contact-single { max-width: 780px; margin-inline: auto; }
 
-.contact-list {
+/* Big tap-friendly contact cards: call / WhatsApp / email */
+.contact-actions {
   display: grid;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
   margin-top: 2rem;
 }
-.contact-list li {
+
+.contact-card {
   display: grid;
-  gap: 2px;
-  font-size: .95rem;
+  justify-items: center;
+  gap: .45rem;
+  padding: 26px 18px 22px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
-.contact-list strong {
+
+.contact-card:hover,
+.contact-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--brand);
+  box-shadow: 0 10px 26px rgba(18, 115, 166, .15);
+}
+
+.cc-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+
+.contact-card strong {
+  font-size: .95rem;
+  color: var(--brand);
+}
+
+.contact-card span {
+  font-size: .85rem;
+  color: var(--muted);
+  word-break: break-word;
+}
+
+/* Address / hours / areas */
+.contact-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2rem;
+  margin: 2rem 0 0;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.contact-meta dt {
   font-size: .72rem;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--muted);
+  margin-bottom: 4px;
 }
-.contact-list a { color: var(--brand); }
-.contact-list a:hover { text-decoration: underline; }
+
+.contact-meta dd { margin: 0; font-size: .92rem; }
+.contact-meta .wide { grid-column: 1 / -1; }
+
+.contact-reply {
+  margin-top: 1.5rem;
+  font-size: .9rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .contact-meta { grid-template-columns: 1fr; }
+}
 
 .map-wrap { margin-top: 2rem; }
 .map-wrap iframe { display: block; width: 100%; }
