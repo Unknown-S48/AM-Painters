@@ -133,10 +133,11 @@ If you add a service, also add it to the `<select>` in the contact form.
 
 ### Reviews
 
-⚠️ **The three reviews in `<section id="testimonials">` are placeholders** written
-as examples. Replace them with genuine client feedback (or remove the section)
-before going live — publishing invented testimonials is misleading and, in South
-Africa, can fall foul of the Consumer Protection Act.
+The three reviews in `<section id="testimonials">` are **genuine Google reviews**
+(John Rutherford, Douglas Parker, Willemien Frick), lightly copy-edited for
+spelling only. Keep new reviews verbatim apart from spelling fixes, and only
+publish feedback you actually received — publishing invented testimonials is
+misleading and, in South Africa, can fall foul of the Consumer Protection Act.
 
 Each review is a `<figure class="card quote reveal">`. Update the quote text, the
 `<strong>` name, the location `<small>`, and the two-letter `<span class="avatar">`
@@ -192,7 +193,7 @@ properties, CSS Grid, `IntersectionObserver` and `classList`. No IE support.
 
 ## Known placeholders
 
-- [ ] Three dummy testimonials — replace before launch
+- [x] ~~Three dummy testimonials~~ — replaced with genuine Google reviews
 - [ ] About-section photo is a stand-in exterior shot, not a team photo
 - [ ] `og:image` points at a placeholder service
 - [ ] Gallery has 4 images; add more project photos over time
