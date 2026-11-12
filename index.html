@@ -136,15 +136,6 @@
     .direct-contact a { color: var(--brand); font-weight: 600; }
     .direct-contact a:hover { text-decoration: underline; }
 
-    /* Small print under the submit button */
-    .form-note {
-      margin: .9rem 0 0;
-      font-size: .82rem;
-      color: var(--muted);
-      text-align: center;
-    }
-    .form-note a { color: var(--brand); }
-
     /* Paint swatches in the footer */
     .paint-swatches { display: flex; gap: 8px; margin-top: 1.25rem; }
     .paint-swatches span {
@@ -606,9 +597,8 @@
           <circle cx="58"  cy="222" r="8"  fill="currentColor" opacity=".16"/>
         </svg>
 
-        <div class="contact-grid">
-          <div class="reveal">
-            <p class="eyebrow">
+        <div class="reveal contact-single">
+          <p class="eyebrow">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                 <path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/>
                 <path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/>
@@ -631,92 +621,13 @@
             </ul>
 
             <div class="direct-contact">
-              <strong>Prefer not to use a form?</strong>
+              <strong>Fastest response</strong>
               <span>
                 Email <a href="mailto:mushimbwe@gmail.com?subject=Quote%20request%20—%20A%26M%20Painters">mushimbwe@gmail.com</a>
-                or WhatsApp <a href="https://wa.me/27641599195" target="_blank" rel="noopener">064 159 9195</a> — same response time.
+                or WhatsApp <a href="https://wa.me/27641599195" target="_blank" rel="noopener">064 159 9195</a> — we reply within one working day.
               </span>
             </div>
-          </div>
-
-          <form class="card contact-form reveal"
-                id="contactForm"
-                action="https://formsubmit.co/mushimbwe@gmail.com"
-                method="POST"
-                novalidate>
-
-            <input type="hidden" name="_subject" value="New quote request from the A&M Painters website" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://ampainters.co.za/thank-you.html" />
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-
-            <div class="form-grid">
-              <div class="field">
-                <label for="name">Full name *</label>
-                <input type="text" id="name" name="name" autocomplete="name" required />
-              </div>
-
-              <div class="field">
-                <label for="phone">Phone number *</label>
-                <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required />
-              </div>
-
-              <div class="field full">
-                <label for="email">Email address</label>
-                <input type="email" id="email" name="email" autocomplete="email" inputmode="email" />
-              </div>
-
-              <div class="field full">
-                <label for="service">What do you need done? *</label>
-                <select id="service" name="service" required>
-                  <option value="">Please choose…</option>
-                  <option>Interior painting</option>
-                  <option>Exterior painting</option>
-                  <option>Roof painting</option>
-                  <option>Door painting</option>
-                  <option>Cabinet painting</option>
-                  <option>Furniture painting</option>
-                  <option>Water damage repairs</option>
-                  <option>Wood varnishing</option>
-                  <option>High-pressure cleaning</option>
-                  <option>Maintenance / other</option>
-                </select>
-              </div>
-
-              <div class="field full">
-                <label for="message">Tell us a bit more *</label>
-                <textarea id="message" name="message" rows="5"
-                          placeholder="e.g. 3-bedroom house exterior in Onrus, roughly 180m². Walls are flaking in places." required></textarea>
-              </div>
-
-              <div class="full">
-                <button type="submit" class="btn btn-primary btn-block">Send my request</button>
-                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-                <p class="form-note">
-                  Prefer email? Write to <a href="mailto:mushimbwe@gmail.com">mushimbwe@gmail.com</a>.
-                  We reply to every enquiry within one working day.
-                </p>
-              </div>
-            </div>
-          </form>
         </div>
-      </div>
-    </section>
-
-    <!-- 7. PRIVACY (POPIA) -->
-    <section class="section alt" id="privacy" style="padding: 48px 0;">
-      <div class="container" style="max-width: 760px;">
-        <h2 style="font-size: 1.35rem;">Privacy statement (POPIA)</h2>
-        <p class="muted" style="font-size: .92rem;">
-          A&amp;M Painters collects the name, phone number, email address and project details you
-          submit through this website solely to respond to your quote request and deliver the
-          agreed work. Your information is never sold, shared with third parties, or used for
-          marketing. Form submissions are processed by FormSubmit.co, which forwards the message
-          to our inbox. You may ask us to delete your information at any time by emailing
-          <a href="mailto:mushimbwe@gmail.com" style="color: var(--brand);">mushimbwe@gmail.com</a>
-          or calling 064 159 9195.
-        </p>
       </div>
     </section>
 
@@ -769,7 +680,6 @@
           <li><a href="#gallery">Our Work</a></li>
           <li><a href="#testimonials">Reviews</a></li>
           <li><a href="#contact">Get a Quote</a></li>
-          <li><a href="#privacy">Privacy (POPIA)</a></li>
         </ul>
       </div>
     </div>
@@ -801,92 +711,6 @@
         el.classList.add('visible');
       });
     }, 2000);
-  </script>
-
-  <!-- ============================================================
-       CONTACT FORM — inline AJAX submission
-       Sends to FormSubmit's AJAX endpoint and shows success/error
-       without leaving the page. Placed BEFORE script.js so it takes
-       priority; if script.js also handles the form, remove that part
-       of script.js to avoid double handling.
-       ============================================================ -->
-  <script>
-    (function () {
-      var form = document.getElementById('contactForm');
-      if (!form) return;
-
-      var status = document.getElementById('formStatus');
-      var submitBtn = form.querySelector('button[type="submit"]');
-
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-
-        // Reset previous validation states
-        form.querySelectorAll('.field.invalid').forEach(function (field) {
-          field.classList.remove('invalid');
-        });
-
-        // Validate required fields
-        var missing = [];
-        ['name', 'phone', 'service', 'message'].forEach(function (name) {
-          var input = form.elements[name];
-          if (input && !String(input.value || '').trim()) {
-            missing.push(input);
-            var wrap = input.closest('.field');
-            if (wrap) wrap.classList.add('invalid');
-          }
-        });
-
-        if (missing.length) {
-          status.textContent = 'Please fill in the highlighted fields.';
-          status.className = 'form-status error';
-          if (missing[0].focus) missing[0].focus();
-          return;
-        }
-
-        var originalLabel = submitBtn ? submitBtn.textContent : '';
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Sending…';
-        }
-        status.textContent = '';
-        status.className = 'form-status';
-
-        fetch('https://formsubmit.co/ajax/mushimbwe@gmail.com', {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(form)
-        })
-          .then(function (response) {
-            return response.json().then(function (data) {
-              return { ok: response.ok, data: data };
-            });
-          })
-          .then(function (result) {
-            var success = result.ok && result.data &&
-              (result.data.success === true || result.data.success === 'true');
-            if (!success) throw new Error('Submission rejected');
-
-            form.reset();
-            status.textContent = 'Thanks! Your request has been sent — we will reply within one working day.';
-            status.className = 'form-status success';
-          })
-          .catch(function () {
-            status.innerHTML =
-              'Sorry, the form could not be sent right now. Please email ' +
-              '<a href="mailto:mushimbwe@gmail.com">mushimbwe@gmail.com</a> or WhatsApp ' +
-              '<a href="https://wa.me/27641599195" target="_blank" rel="noopener">064 159 9195</a>.';
-            status.className = 'form-status error';
-          })
-          .finally(function () {
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.textContent = originalLabel;
-            }
-          });
-      }, true);
-    })();
   </script>
 
   <script src="script.js"></script>

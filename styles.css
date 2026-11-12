@@ -375,12 +375,7 @@ p  { margin: 0 0 1rem; }
 /* CONTACT */
 #contact { overflow: hidden; } /* clips the decorative splash-c */
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: .85fr 1.15fr;
-  gap: 56px;
-  align-items: start;
-}
+.contact-single { max-width: 680px; margin-inline: auto; }
 
 .contact-list {
   display: grid;
@@ -403,67 +398,6 @@ p  { margin: 0 0 1rem; }
 
 .map-wrap { margin-top: 2rem; }
 .map-wrap iframe { display: block; width: 100%; }
-
-/* Form */
-.contact-form { padding: 32px; }
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-.full { grid-column: 1 / -1; }
-
-.field { display: grid; gap: 6px; }
-
-.field label {
-  font-size: .82rem;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.field input,
-.field textarea,
-.field select {
-  width: 100%;
-  padding: 12px 14px;
-  font: inherit;
-  font-size: .95rem;
-  color: var(--text);
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  transition: border-color .2s ease, box-shadow .2s ease;
-  resize: vertical;
-}
-
-.field select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 40px;
-}
-
-.field input:focus,
-.field textarea:focus,
-.field select:focus {
-  outline: none;
-  border-color: var(--brand);
-  box-shadow: 0 0 0 3px rgba(18, 115, 166, .15);
-}
-
-.field.invalid input,
-.field.invalid textarea,
-.field.invalid select { border-color: #dc2626; }
-
-.form-status {
-  margin: .9rem 0 0;
-  font-size: .9rem;
-  min-height: 1.2em;
-}
-.form-status.success { color: #15803d; }
-.form-status.error   { color: #dc2626; }
 
 /* FOOTER */
 .site-footer {
@@ -577,8 +511,7 @@ p  { margin: 0 0 1rem; }
 /* RESPONSIVE */
 @media (max-width: 960px) {
   .hero-grid,
-  .about-grid,
-  .contact-grid {
+  .about-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
@@ -622,8 +555,6 @@ p  { margin: 0 0 1rem; }
 }
 
 @media (max-width: 600px) {
-  .form-grid { grid-template-columns: 1fr; }
-  .contact-form { padding: 24px; }
   .footer-inner { grid-template-columns: 1fr; gap: 28px; }
 }
 
