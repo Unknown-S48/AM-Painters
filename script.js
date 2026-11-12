@@ -1,4 +1,5 @@
-/* A&M PAINTERS — SITE SCRIPT 
+/* A&M PAINTERS — SITE SCRIPT */
+
 /* 1. MOBILE NAVIGATION */
 const navToggle = document.getElementById('navToggle');
 const nav = document.getElementById('nav');
@@ -169,14 +170,21 @@ form.addEventListener('submit', async (event) => {
 
   try {
     /* Posts to FormSubmit.co — no backend required.
-       First submission triggers an activation email to mushimbwe@gmail.com. */
-    const response = await fetch(form.action, {
+       First submission triggers an activation email to mushimbwe@gmail.com;
+       click the link in that email once to start receiving messages.
+       The AJAX endpoint returns JSON; the no-JS fallback (form action +
+       _next hidden field) redirects to thank-you.html instead. */
+    const response = await fetch('https://formsubmit.co/ajax/mushimbwe@gmail.com', {
       method: 'POST',
       body: new FormData(form),
       headers: { Accept: 'application/json' }
     });
 
     if (!response.ok) throw new Error('Network response was not ok');
+    const data = await response.json().catch(() => ({}));
+    if (data.success !== 'true' && data.success !== true) {
+      throw new Error(data.message || 'FormSubmit rejected the submission');
+    }
 
     const firstName = form.elements.name.value.trim().split(' ')[0];
     formStatus.classList.add('success');

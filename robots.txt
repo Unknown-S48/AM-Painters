@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ampainters.co.za/sitemap.xml
