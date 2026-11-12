@@ -30,7 +30,8 @@ Open `index.html` in a browser and it works.
   decorative paint splashes can never cause horizontal scroll on phones
 - Mobile hamburger navigation
 - Scroll-reveal animations with a CSS/JS fallback so content is never stuck hidden
-- Click-to-enlarge gallery lightbox (keyboard + backdrop close) — 10 real project photos
+- Click-to-enlarge gallery lightbox (keyboard + backdrop close) — 8 unique project
+  photos (no repeats; hero/About photos aren't duplicated in the gallery)
 - Floating WhatsApp button with a pre-filled message
 - Contact form posting to FormSubmit's JSON AJAX endpoint (no backend required),
   with a `thank-you.html` fallback for visitors without JavaScript
@@ -55,18 +56,18 @@ am-painters/
 ├── styles.css
 ├── script.js
 ├── img/
-│   ├── BestWork.jpg                  # Hero image + gallery item 1
+│   ├── BestWork.jpg                  # Hero image
 │   ├── og-image.jpg                  # Open Graph share image (1200×630)
 │   ├── apple-touch-icon.png          # iOS home-screen icon (180×180)
-│   ├── ExteriorRepaint.jpg           # About section + gallery item 3
-│   ├── house-painted.jpg             # Gallery item 2
-│   ├── outside-painting.jpg          # Gallery item 4
-│   ├── RoofCoating.jpg               # Gallery item 5
-│   ├── roof-work.jpg                 # Gallery item 6
-│   ├── FloorVarnish.jpg              # Gallery item 7
-│   ├── floor-finish.jpg              # Gallery item 8
-│   ├── before-after-1-before.jpg     # Gallery item 9 (before)
-│   └── before-after-1-after.jpg      # Gallery item 10 (after)
+│   ├── ExteriorRepaint.jpg           # About section photo
+│   ├── house-painted.jpg             # Gallery item 1
+│   ├── outside-painting.jpg          # Gallery item 2
+│   ├── RoofCoating.jpg               # Gallery item 3
+│   ├── roof-work.jpg                 # Gallery item 4
+│   ├── FloorVarnish.jpg              # Gallery item 5
+│   ├── floor-finish.jpg              # Gallery item 6
+│   ├── before-after-1-before.jpg     # Gallery item 7 (before)
+│   └── before-after-1-after.jpg      # Gallery item 8 (after)
 ├── .gitattributes
 └── README.md
 ```
@@ -228,7 +229,7 @@ properties, CSS Grid, `IntersectionObserver` and `classList`. No IE support.
 
 - [x] ~~Three dummy testimonials~~ — replaced with genuine Google reviews
 - [x] ~~`og:image` placeholder~~ — real 1200×630 share image (`img/og-image.jpg`)
-- [x] ~~Gallery had 4 images~~ — now 10, including a before/after pair
+- [x] ~~Gallery had 4 images~~ — now 8 unique tiles (hero/About photos not repeated)
 - [ ] Canonical/live URLs assume `https://ampainters.co.za/` — update if the domain
       ends up different (canonical, `og:url`, `_next`, robots.txt, sitemap.xml)
 

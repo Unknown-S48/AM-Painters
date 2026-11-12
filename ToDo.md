@@ -3,8 +3,8 @@
 ## ✅ Done (this session)
 - [x] Genuine Google reviews live (John Rutherford, Douglas Parker, Willemien Frick)
       + Abel's sign-off confirmed.
-- [x] 6 new photos audited (all unique, no duplicates, no black bars) → gallery now 10
-      items incl. a before/after pair. Advert graphics deleted as requested.
+- [x] 6 new photos audited (all unique, no duplicates, no black bars) → gallery now 8
+      unique tiles incl. a before/after pair (hero/About photos not repeated). Advert graphics deleted as requested.
 - [x] Image files cleaned & renamed to kebab-case `.jpg` (they were all JPEGs with
       misleading `.png` names, spaces, `&` in filenames).
 - [x] **Mobile horizontal-scroll fixed** — the decorative splash in the contact section
