@@ -40,6 +40,11 @@ Open `index.html` in a browser and it works.
   WhatsApp / Facebook link previews
 - Canonical URL + `og:url` set to `https://ampainters.co.za/`
 - Inline SVG favicon + `apple-touch-icon.png` for iOS home screens
+- Branded `404.html` (picked up automatically by GitHub Pages & most hosts)
+- Hero image `preload` for faster first paint on slow connections
+- Analytics pre-wired but **off**: a commented Plausible (cookie-less) snippet in
+  `index.html` — uncomment when a Plausible site exists (and add a one-line
+  POPIA disclosure to the footer when you do)
 
 ---
 
@@ -48,6 +53,7 @@ Open `index.html` in a browser and it works.
 ```
 am-painters/
 ├── index.html
+├── 404.html
 ├── robots.txt
 ├── sitemap.xml
 ├── styles.css

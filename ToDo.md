@@ -20,6 +20,12 @@
 - [x] JSON-LD `aggregateRating` (5★, 3 reviews) + `url`.
 - [x] WhatsApp button confirmed working.
 - [x] README rewritten to match reality.
+- [x] Branded `404.html` created (auto-used by GitHub Pages / most hosts).
+- [x] Hero image `preload` added for faster first paint.
+- [x] Plausible analytics snippet pre-wired in `index.html`, commented off
+      (cookie-less; uncomment when enabled — then re-add a one-line POPIA note).
+- [x] Final audit: all anchor links resolve, JSON-LD validates, all images
+      <200 KB, lang/theme-color/canonical present.
 
 ## 🚨 Before launch (needs the domain / you)
 - [ ] **Buy `ampainters.co.za`**.
@@ -33,11 +39,18 @@
 ## 📈 Later / nice to have
 - [ ] More project photos over time (kebab-case names, <300 KB, alt text).
 - [ ] Team/on-site photo for the About section if one ever becomes available.
-- [ ] Privacy-friendly analytics (Plausible) — only if wanted; would require a
-      cookie notice.
+- [ ] Enable analytics: create Plausible site → uncomment snippet in `index.html`
+      → add one-line privacy disclosure to footer.
 - [ ] If a quote form is ever wanted again: FormSubmit/Netlify Forms can be
       re-added (old implementation is in git history).
 
 ## Notes
 - All URLs assume `https://ampainters.co.za/` — if the domain ends up different,
   update: canonical, `og:url`, `robots.txt`, `sitemap.xml`, JSON-LD `url`.
+
+## 🙋 Needed from Zander / Abel
+- [ ] New project photos as jobs finish (drop in `img/`, I'll add them).
+- [ ] A team/on-site photo of Abel, if one exists — for the About section.
+- [ ] Google Business Profile URL once created (optional link target later).
+- [ ] Decision on analytics (Plausible) once the domain is live.
+- [ ] Confirm final domain is `ampainters.co.za` after purchase.

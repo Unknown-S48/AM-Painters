@@ -8,6 +8,9 @@
   <meta name="description" content="A&M Painters — interior, exterior and roof painting, cabinet and furniture painting, water damage repairs, wood varnishing and high-pressure cleaning in Hermanus and the Overberg. Free quotes: 064 159 9195." />
   <meta name="theme-color" content="#1273a6" />
 
+  <!-- Preload the hero image so it paints sooner on slow connections -->
+  <link rel="preload" as="image" href="img/BestWork.jpg" fetchpriority="high" />
+
   <!-- Inline SVG favicon (no extra file needed) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231273a6'/%3E%3Ctext x='50' y='70' font-family='system-ui,sans-serif' font-size='54' font-weight='800' text-anchor='middle' fill='white'%3EA%3C/text%3E%3C/svg%3E" />
 
@@ -712,6 +715,13 @@
       });
     }, 2000);
   </script>
+
+  <!-- ANALYTICS (opt-in): create a Plausible site for ampainters.co.za, then
+       uncomment the script tag below. Cookie-less mode: no personal data, no
+       cookie banner — but re-add a one-line privacy disclosure (POPIA) to the
+       footer once enabled.
+  <script defer data-domain="ampainters.co.za" src="https://plausible.io/js/script.js"></script>
+  -->
 
   <script src="script.js"></script>
 </body>
