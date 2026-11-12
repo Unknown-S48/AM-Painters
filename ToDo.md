@@ -23,7 +23,6 @@
 - [x] `thank-you.html` created + `_next` hidden field wired (no-JS path).
 - [x] `robots.txt` + `sitemap.xml` created for `ampainters.co.za`.
 - [x] JSON-LD `aggregateRating` (5★, 3 reviews) + `url` added — legitimate now.
-- [x] "More reviews on Google" button under the testimonials.
 - [x] WhatsApp button confirmed working.
 - [x] README rewritten to match reality; broken JS comment header fixed.
 
@@ -36,8 +35,7 @@
       Point the domain at it; verify the site loads at `https://ampainters.co.za/`.
 - [ ] **Re-check the phone fix** — confirm no sideways scroll on a real phone
       (fix is in, but eyeball it once deployed).
-- [ ] **Google Business Profile** — claim/create "A&M Painters, Hermanus"; then
-      update the "More reviews on Google" link to the actual GBP review URL.
+- [ ] **Google Business Profile** — claim/create "A&M Painters, Hermanus".
 - [ ] **Google Search Console** — verify the domain, submit `sitemap.xml`.
 - [ ] Check WhatsApp/Facebook link preview of the URL shows the og-image.
 

@@ -240,8 +240,7 @@ properties, CSS Grid, `IntersectionObserver` and `classList`. No IE support.
 1. Click FormSubmit's **"Activate Form"** email, then submit a real test enquiry.
 2. Verify horizontal scroll is gone on a real phone.
 3. Register the domain, deploy, verify Search Console, submit the sitemap.
-4. Create/claim the **Google Business Profile**; point the "More reviews on Google"
-   button at the actual review page.
+4. Create/claim the **Google Business Profile** — essential for local visibility.
 5. Check WhatsApp/Facebook link previews of the site URL (og-image should show).
 
 ---
